@@ -66,3 +66,6 @@ runBabel.js
 
 맥 : NODE_ENV=production npx babel ./src/example-env
 윈도우 : set NODE_ENV=production && npx babel ./src/example-env
+
+폴리필 : 런타임에 기능을 주입하는 것을 말한다. 런타임에 기능이 존재하는지 검사해서 기능이 없는 경우에만 주입하는 것을 말한다.
+@babel/preset-env : 프리셋은 실행 환경에 대한 정보를 설정해주면 자동으로 필요한 기능을 주입해준다.

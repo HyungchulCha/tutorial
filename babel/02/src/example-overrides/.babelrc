@@ -1,0 +1,11 @@
+{
+  "presets": ["@babel/preset-react"],
+  "plugins": ["@babel/plugin-transform-template-literals"],
+  "overrides": [
+    {
+      "include": "./service1",
+      "exclude": "./service1/03.js", // 03.js 파일은 화살표 함수 플러그인이 적용되지 않는다.
+      "plugins": ["@babel/plugin-transform-arrow-functions"]
+    }
+  ]
+}
