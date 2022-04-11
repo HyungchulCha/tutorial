@@ -1,0 +1,68 @@
+바벨을 실행하는 여러가지 방법
+  @babel/cli
+  webpack - babel-loader
+  @babel/core
+  @babel/register
+
+npm i
+  @babel/core 
+  @babel/cli 
+  @babel/plugin-transform-arrow-functions 
+  @babel/plugin-transform-template-literals 
+  @babel/preset-react
+
+npx babel src/01.js --presets=@babel/preset-react --plugins=@babel/plugin-transform-arrow-functions,@babel/plugin-transform-template-literals
+
+babel.config.js
+  const presets = ['@babel/preset-react'];
+  const plugins = ['@babel/plugin-transform-arrow-functions', '@babel/plugin-transform-template-literals'];
+  module.exports = { presets, plugins };
+
+npx babel src/01.js
+
+npx babel src/01.js --out-file dist01/01.js
+npx babel src --out-dir dist01
+
+npm i
+  webpack webpack-cli babel-loader
+
+webpack.config.js
+  const path = require('path');
+  module.exports = {
+    entry: './src/code.js',
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'code.bundle.js',
+    },
+    module: {
+      rules: [{ test: /\.js$/, use: 'babel-loader' }],
+    },
+    optimization: { minimizer: [] },
+  };
+
+  npx webpack
+
+@babel/core
+runBabel.js
+  const babel = require('@babel/core');
+  const fs = require('fs');
+  const filename = './src/01.js';
+  const source = fs.readFileSync(filename, 'utf8');
+  const presets = ['@babel/preset-react'];
+  const plugins = ['@babel/plugin-transform-arrow-functions', '@babel/plugin-transform-template-literals'];
+  const { code } = babel.transformAsync(source, {
+    filename,
+    presets,
+    plugins,
+    configFile: false, // babel.config.js 설정파일을 사용하지 않도록 한다.
+  });
+  console.log(code);
+
+  node runBabel.js
+
+  파싱단계 : 입력된 코드로부터 AST(abstract syntax tree)를 생성한다.
+  변환단계 : AST를 원하는 형태로 변환한다.
+  생성단계 : AST를 코드로 출력한다.
+
+맥 : NODE_ENV=production npx babel ./src/example-env
+윈도우 : set NODE_ENV=production && npx babel ./src/example-env

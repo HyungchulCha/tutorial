@@ -1,0 +1,4 @@
+{
+  "extends": "../common/.babelrc", // 다른 설정 파일을 가져와서 확장할 수 있다.
+  "plugins": ["@babel/plugin-transform-template-literals", "@babel/plugin-transform-arrow-functions"]
+}
