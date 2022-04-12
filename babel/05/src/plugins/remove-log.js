@@ -11,7 +11,7 @@ module.exports = function ({ types: t }) {
             const memberExp = path.node.expression.callee;
             if (memberExp.object.name === 'console' && memberExp.property.name === 'log') {
               // console 객체의 log 메서드가 호출된 것인지 검사한다.
-              path.remove(); // 모든 조건을 만족하면 AST에서 ExpressionStatement 노드를 제거한다.
+              path.remove(); // 모든 조건을 만족하면 AST에서 ExpressionStatement 노드를 제거한다.ㄴ
             }
           }
         }
