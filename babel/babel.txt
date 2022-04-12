@@ -79,7 +79,7 @@ AST
 
 바벨 플러그인 기본구조
   const v1 = a + b;
-  module.exports = function({ types: t }) {
+  module.exports = function({ types: t }) { // types 매개변수를 가진 함수를 내보낸다.
     const node = t.BinaryExpression('+', t.Identifier('a'), t.Identifier('b'));
     console.log('isBinaryExpression:', t.isBinaryExpression(node));
     return {};
