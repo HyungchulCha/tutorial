@@ -81,6 +81,16 @@ AST
   const v1 = a + b;
   module.exports = function({ types: t }) { // types 매개변수를 가진 함수를 내보낸다.
     const node = t.BinaryExpression('+', t.Identifier('a'), t.Identifier('b'));
-    console.log('isBinaryExpression:', t.isBinaryExpression(node));
-    return {};
+    console.log('isBinaryExpression:', t.isBinaryExpression(node)); // types 매개변수를 이용해서 AST 노드를 생성할 수 있다.
+    return {}; // 빈 객체를 반환하면 아무일을 하지 않는다.
+    return {
+      visitor: {
+        Identifier(path) {
+          console.log('Identifier name:', path.node.name);
+        },
+        BinaryExpression(path) {
+          console.log('BinaryExpression operator:', path.node.operator);
+        }
+      }
+    }
   }
