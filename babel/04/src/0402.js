@@ -1,4 +1,4 @@
-import 'core-js';
+// import 'core-js';
 
 const p = Promise.resolve(10);
 const obj = {

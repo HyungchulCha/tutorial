@@ -69,3 +69,18 @@ runBabel.js
 
 폴리필 : 런타임에 기능을 주입하는 것을 말한다. 런타임에 기능이 존재하는지 검사해서 기능이 없는 경우에만 주입하는 것을 말한다.
 @babel/preset-env : 프리셋은 실행 환경에 대한 정보를 설정해주면 자동으로 필요한 기능을 주입해준다.
+
+astexplorer
+AST
+  각 노드는 type 속성이 있다.
+  변수 선언은 VariableDeclarator이다.
+  개발자가 만들어낸 각종 이름은 Identifier 타입으로 만들어진다.
+  사칙연산은 BinaryExression 타입으로 만들어진다.
+
+바벨 플러그인 기본구조
+  const v1 = a + b;
+  module.exports = function({ types: t }) {
+    const node = t.BinaryExpression('+', t.Identifier('a'), t.Identifier('b'));
+    console.log('isBinaryExpression:', t.isBinaryExpression(node));
+    return {};
+  }
