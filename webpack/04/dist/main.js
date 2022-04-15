@@ -1,0 +1,1 @@
+(()=>{"use strict";const o=[];o.push(10),console.log("f02"),console.log("f01",o.length)})();
