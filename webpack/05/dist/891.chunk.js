@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_05=self.webpackChunk_05||[]).push([[891],{891:(n,s,e)=>{function u(n,s){return console.log("this is add function"),n+s}e.r(s),e.d(s,{add:()=>u})}}]);
